@@ -4,7 +4,6 @@ import java.net.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        // Get the IP from the command line instead of hard-coding it
         if (args.length != 1) {
             System.out.println("Usage: java Lab2 <ip-address>");
             return;
