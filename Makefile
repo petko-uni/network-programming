@@ -8,15 +8,12 @@ build:
 run:
 
 ifneq ($(strip $(TGT)),)
-		@java -cp $(shell pwd)/target/dev.petko.oop-1.0.jar dev.petko.np.${TGT}
+		@java -cp $(shell pwd)/target/dev.petko.np-1.0.jar dev.petko.np.${TGT}
 else
-ifeq ($(strip $(LAB)),)
-		@java -cp $(shell pwd)/target/dev.petko.oop-1.0.jar dev.petko.np.Main
+ifneq ($(strip $(LAB)),)
+		@java -cp $(shell pwd)/target/dev.petko.np-1.0.jar dev.petko.np.lab${LAB}.Main
 else
-ifeq ($(strip $(PROBLEM)),)
-		@java -cp $(shell pwd)/target/dev.petko.oop-1.0.jar dev.petko.np.lab${LAB}.Main
-else
-		@java -cp $(shell pwd)/target/dev.petko.oop-1.0.jar dev.petko.np.lab${LAB}.Problem${PROBLEM}
-endif
+		@echo "LAB or TGT required"
+		@exit 1
 endif
 endif
